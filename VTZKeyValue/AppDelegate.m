@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <AVOSCloud.h>
 @interface AppDelegate ()
 
 @end
@@ -15,11 +15,24 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //如果使用美国站点，请加上这行代码 [AVOSCloud useAVCloudUS];
+    /**
+     *  Configure LeanCloud.
+     */
     [AVOSCloud setApplicationId:@"gt17xvxvfupbvsqqatlclsyvp55isal54cc43ayzqslspax4"
                       clientKey:@"mfe9vx5vqegwmkjiahvzzlgsfqnd4tbw7nnxdibg1zah70vj"];
+    
+//    NSDictionary *parameters = @{@"key": @"tk"};
+
+//    [AVCloud callFunctionInBackground:@"fetchValueForKey" withParameters:parameters block:^(id object, NSError *error) {
+//        if (object) {
+//            
+//        } else {
+//            
+//        }
+//    }];
     return YES;
 }
 
