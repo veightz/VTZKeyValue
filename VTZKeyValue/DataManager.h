@@ -12,6 +12,7 @@
 
 typedef void(^VTZFetchOneResultBlock)(id object, NSError *error);
 typedef void(^VTZSaveBlock)(BOOL succeeded, NSError *error);
+
 @interface DataManager : NSObject
 
 + (instancetype)sharedManager;

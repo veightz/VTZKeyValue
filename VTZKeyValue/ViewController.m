@@ -11,6 +11,7 @@
 #import "RACEXTScope.h"
 #import <AVOSCloud.h>
 #import <JDStatusBarNotification.h>
+#import "ActionManager.h"
 
 @interface ViewController ()
 
@@ -48,6 +49,11 @@
             self.presentedMapObject = object;
             if ([self.inputTextField.text isEqualToString:object[@"key"]]) {
                 [self.outputTextView setText:object[@"value"]];
+                @weakify(self);
+                [SharedActionManager write:^(VTZPasteboardUnit *unit) {
+                    @strongify(self);
+                    unit.string = self.outputTextView.text;
+                }];
             }
         } else {
             [JDStatusBarNotification showWithStatus:@"Not Found." dismissAfter:1.0 styleName:JDStatusBarStyleError];

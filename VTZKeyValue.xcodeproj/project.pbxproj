@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A66409381B5FED2600A77EA8 /* ActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A66409371B5FED2600A77EA8 /* ActionManager.m */; };
+		A664093B1B5FF26500A77EA8 /* VTZPasteboardUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = A664093A1B5FF26500A77EA8 /* VTZPasteboardUnit.m */; };
 		A6F6EC9E1B5E6E3C00A996A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6EC9D1B5E6E3C00A996A9 /* main.m */; };
 		A6F6ECA11B5E6E3C00A996A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6ECA01B5E6E3C00A996A9 /* AppDelegate.m */; };
 		A6F6ECA41B5E6E3C00A996A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6ECA31B5E6E3C00A996A9 /* ViewController.m */; };
@@ -31,6 +33,10 @@
 /* Begin PBXFileReference section */
 		0B1C21BE954A1B8C834269AD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		46A27B3A69A7EEC2326336C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A66409361B5FED2600A77EA8 /* ActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionManager.h; sourceTree = "<group>"; };
+		A66409371B5FED2600A77EA8 /* ActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionManager.m; sourceTree = "<group>"; };
+		A66409391B5FF26500A77EA8 /* VTZPasteboardUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTZPasteboardUnit.h; sourceTree = "<group>"; };
+		A664093A1B5FF26500A77EA8 /* VTZPasteboardUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTZPasteboardUnit.m; sourceTree = "<group>"; };
 		A6F6EC981B5E6E3C00A996A9 /* VTZKeyValue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTZKeyValue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F6EC9C1B5E6E3C00A996A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6F6EC9D1B5E6E3C00A996A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +93,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A664093C1B5FF27D00A77EA8 /* ActionManager */ = {
+			isa = PBXGroup;
+			children = (
+				A66409361B5FED2600A77EA8 /* ActionManager.h */,
+				A66409371B5FED2600A77EA8 /* ActionManager.m */,
+			);
+			name = ActionManager;
+			sourceTree = "<group>";
+		};
+		A664093D1B5FF28700A77EA8 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				A6F6ECC11B5E911300A996A9 /* DataManager.h */,
+				A6F6ECC21B5E911300A996A9 /* DataManager.m */,
+				A664093E1B5FF2A800A77EA8 /* PasteboardBuilder */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		A664093E1B5FF2A800A77EA8 /* PasteboardBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				A66409391B5FF26500A77EA8 /* VTZPasteboardUnit.h */,
+				A664093A1B5FF26500A77EA8 /* VTZPasteboardUnit.m */,
+			);
+			name = PasteboardBuilder;
+			sourceTree = "<group>";
+		};
 		A6F6EC8F1B5E6E3C00A996A9 = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +148,8 @@
 				A6F6ECA01B5E6E3C00A996A9 /* AppDelegate.m */,
 				A6F6ECA21B5E6E3C00A996A9 /* ViewController.h */,
 				A6F6ECA31B5E6E3C00A996A9 /* ViewController.m */,
-				A6F6ECC11B5E911300A996A9 /* DataManager.h */,
-				A6F6ECC21B5E911300A996A9 /* DataManager.m */,
+				A664093C1B5FF27D00A77EA8 /* ActionManager */,
+				A664093D1B5FF28700A77EA8 /* DataManager */,
 				A6F6ECA51B5E6E3C00A996A9 /* Main.storyboard */,
 				A6F6ECCA1B5EA46F00A996A9 /* RacHelper */,
 				A6F6ECA81B5E6E3C00A996A9 /* Images.xcassets */,
@@ -298,7 +332,9 @@
 				A6F6ECA41B5E6E3C00A996A9 /* ViewController.m in Sources */,
 				A6F6ECC31B5E911300A996A9 /* DataManager.m in Sources */,
 				A6F6ECA11B5E6E3C00A996A9 /* AppDelegate.m in Sources */,
+				A66409381B5FED2600A77EA8 /* ActionManager.m in Sources */,
 				A6F6EC9E1B5E6E3C00A996A9 /* main.m in Sources */,
+				A664093B1B5FF26500A77EA8 /* VTZPasteboardUnit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

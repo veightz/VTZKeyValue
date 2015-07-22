@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <AVOSCloud.h>
+#import "ActionManager.h"
 @interface AppDelegate ()
 
 @end
@@ -33,6 +34,8 @@
 //            
 //        }
 //    }];
+    
+    
     return YES;
 }
 
