@@ -10,6 +10,7 @@
 #import "DataManager.h"
 #import "RACEXTScope.h"
 #import <AVOSCloud.h>
+#import <JDStatusBarNotification.h>
 
 @interface ViewController ()
 
@@ -25,13 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-//    [SharedDataManager fetchMappingValueForKey:@"tk" completion:^(id object, NSError *error) {
-//        if (object) {
-//            NSLog(@"find!");
-//            NSLog(@"%@ => %@", object[@"key"], object[@"value"]);
-//        }
-//    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,35 +37,48 @@
     [self.outputTextView setText:@""];
     self.presentedMapObject = nil;
     NSString *queryString = self.inputTextField.text;
+    
+    [JDStatusBarNotification showWithStatus:@"Mapping..." styleName:JDStatusBarStyleDefault];
+    
     @weakify(self);
     [SharedDataManager fetchMappingValueForKey:queryString completion:^(AVObject *object, NSError *error) {
         @strongify(self);
         if (object) {
+            [JDStatusBarNotification showWithStatus:@"Found It!" dismissAfter:1.5 styleName:JDStatusBarStyleSuccess];
             self.presentedMapObject = object;
             if ([self.inputTextField.text isEqualToString:object[@"key"]]) {
                 [self.outputTextView setText:object[@"value"]];
             }
+        } else {
+            [JDStatusBarNotification showWithStatus:@"Not Found." dismissAfter:1.0 styleName:JDStatusBarStyleError];
         }
     }];
 }
 
 - (IBAction)pushAction:(id)sender {    
     if (!self.inputTextField.text.length || !self.outputTextView.text.length) {
+        NSString *statusString = self.inputTextField.text.length ? @"Value string is too short!" : @"Key string is too short!";
+        [JDStatusBarNotification showWithStatus:statusString dismissAfter:1.2 styleName:JDStatusBarStyleError];
         return;
     }
+    [JDStatusBarNotification showWithStatus:@"Pushing..." styleName:JDStatusBarStyleDefault];
     if (self.presentedMapObject) {
         [SharedDataManager setMappingValue:self.outputTextView.text forObjectId:self.presentedMapObject.objectId completion:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
+                [JDStatusBarNotification showWithStatus:@"Pushed It!" dismissAfter:1.5 styleName:JDStatusBarStyleSuccess];
                 NSLog(@"Save %@ => %@ Done.", self.inputTextField.text, self.outputTextView.text);
             } else {
+                [JDStatusBarNotification showWithStatus:@"Push failed." dismissAfter:1.0 styleName:JDStatusBarStyleError];
                 NSLog(@"Save %@ => %@ failed. Reason: %@", self.inputTextField.text, self.outputTextView.text, error.description);
             }
         }];
     } else {
         [SharedDataManager setMappingValue:self.outputTextView.text forKey:self.inputTextField.text completion:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
+                [JDStatusBarNotification showWithStatus:@"Pushed It!" dismissAfter:1.5 styleName:JDStatusBarStyleSuccess];
                 NSLog(@"Save %@ => %@ Done.", self.inputTextField.text, self.outputTextView.text);
             } else {
+                [JDStatusBarNotification showWithStatus:@"Push failed." dismissAfter:1.0 styleName:JDStatusBarStyleError];
                 NSLog(@"Save %@ => %@ failed. Reason: %@", self.inputTextField.text, self.outputTextView.text, error.description);
             }
         }];

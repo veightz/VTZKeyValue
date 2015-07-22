@@ -1,10 +1,13 @@
 PODS:
   - AVOSCloud (3.1.2.6)
+  - JDStatusBarNotification (1.5.2)
 
 DEPENDENCIES:
   - AVOSCloud
+  - JDStatusBarNotification (~> 1.5.2)
 
 SPEC CHECKSUMS:
   AVOSCloud: a2fc903a1aee5a346f0fb839f92617378fffd2ed
+  JDStatusBarNotification: 001473f0ea694f0a9b8bcce3eb11cc954d51cf6c
 
 COCOAPODS: 0.35.0
